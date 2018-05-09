@@ -1,0 +1,4 @@
+FROM mysql:5.7
+
+ADD ./edith/mysql.cnf /etc/mysql/conf.d/mysql.cnf
+ADD ./edith/edith.sql /docker-entrypoint-initdb.d

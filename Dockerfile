@@ -24,4 +24,4 @@ RUN chmod 775 /tmp/entrypoint.sh && a2enmod proxy
 
 EXPOSE 80
 
-ENTRYPOINT /tmp/entrypoint.sh
+CMD /tmp/entrypoint.sh

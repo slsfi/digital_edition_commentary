@@ -299,3 +299,16 @@ ALTER TABLE `person_nameform`
 --
 ALTER TABLE `place_nameform`
   ADD CONSTRAINT `FK_NAMEFORM_PLACEID` FOREIGN KEY (`place_id`) REFERENCES `place` (`id`);
+
+CREATE USER 'edith'@'%' IDENTIFIED BY 'edith';
+GRANT ALL PRIVILEGES ON edith.* TO 'edith'@'%';
+
+
+UPDATE note SET status = 'DRAFT' WHERE status ='INITIAL';
+
+ALTER TABLE note ADD new_status_column ENUM('DRAFT', 'FINISHED') CHARACTER SET utf8 COLLATE utf8_swedish_ci DEFAULT NULL ;
+UPDATE note SET new_status_column = status;
+ALTER TABLE note DROP status;
+
+ALTER TABLE note CHANGE new_status_column status ENUM('DRAFT', 'FINISHED') CHARACTER SET utf8 COLLATE utf8_swedish_ci DEFAULT NULL ; 
+

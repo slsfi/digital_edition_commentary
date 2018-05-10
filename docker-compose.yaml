@@ -1,20 +1,26 @@
 version: '3'
 services:
-  edith_jetty:
+  jetty:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.jetty
     ports:
       - "8082:8080"
     volumes: &edith_volumes
       - svn-volume:/opt/svn/
-  web_svn:
+    restart: always
+  
+  web:
     build:
       context: .
       dockerfile: Dockerfile.apache
+    depends_on: 
+      - jetty
     ports:
       - "8282:80"
     volumes: *edith_volumes
+    restart: always
+  
   mysql-db:
     build:
       context: .
@@ -25,6 +31,7 @@ services:
       MYSQL_ROOT_PASSWORD: "somepassword"
     volumes: 
       - data-volume:/var/lib/mysql
+    restart: always
 
 volumes:
   data-volume:

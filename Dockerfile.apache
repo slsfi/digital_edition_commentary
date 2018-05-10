@@ -4,7 +4,7 @@ ADD ./edith /tmp
 
 RUN export RUNLEVEL=1 && echo exit 0 > /usr/sbin/policy-rc.d && chmod +x /usr/sbin/policy-rc.d
 
-RUN apt-get update && apt-get -y install subversion apache2 libapache2-mod-svn && mkdir /opt/svn/
+RUN apt-get update && apt-get -y install subversion apache2 libapache2-mod-svn
 
 RUN cp /tmp/edithusers /etc/apache2/edithusers && cp /tmp/edith_site.conf /etc/apache2/sites-available/ 
 

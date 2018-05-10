@@ -1,0 +1,15 @@
+FROM httpd:2.4
+
+ADD ./edith /tmp
+
+RUN export RUNLEVEL=1 && echo exit 0 > /usr/sbin/policy-rc.d && chmod +x /usr/sbin/policy-rc.d
+
+RUN apt-get update && apt-get -y install subversion apache2 libapache2-mod-svn && mkdir /opt/svn/
+
+RUN cp /tmp/edithusers /etc/apache2/edithusers && cp /tmp/edith_site.conf /etc/apache2/sites-available/ 
+
+RUN chmod 775 /tmp/entrypoint_web.sh && a2enmod proxy
+
+EXPOSE 80
+
+CMD /tmp/entrypoint_web.sh

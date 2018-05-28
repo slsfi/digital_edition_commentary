@@ -1,5 +1,12 @@
 **Docker Container for the Edith-commentary tool**
 
+*NOTE!*
+
+-	Change the default MySQL password in the docker-compose.yaml file.
+-	You may also skip step #6 if you edith the edithusers file in /edith/edithusers before the step #3.
+-	You can add new SVN users with the command in step #6.
+
+
 **Instructions**
 
 1.	Clone the repository

@@ -15,3 +15,4 @@
 11.	Generare a SHA-1 password (e.g. http://www.sha1-online.com/)
 12.	run (in mysql client started above #9): INSERT INTO `edith`.`user` (`firstName`, `password`, `profile`, `username`, `active`) VALUES ('svn_user', '[SHA-1 password]', 'User', 'svn_user', '1');
 13.	Login to the Edith tool on http://[your ip]:8082/edith
+14.	Add XML documents through the Edith-commentary tool or through SVN. 

@@ -15,7 +15,7 @@
 3.	run: docker-compose build
 4.	run: docker-compose up -d
 5.	run: docker ps (copy container id for edithdocker_web and edithdocker_mysql-db)
-6.	run: docker exec -it [container id for edithdocker_web] htpasswd -c -m /etc/apache2/edithusers svn_user
+6.	run: docker exec -it [container id for edithdocker_web] htpasswd -m /etc/apache2/edithusers svn_user
 7.	Download a SVN client
 8.	Do a SVN Checkout on http://[your ip]:8282/svn/documents
 9.	run: docker exec -it [container id for edithdocker_mysql-db] docker exec -it [container id for edithdocker_mysql-db] mysql -u root -p edith

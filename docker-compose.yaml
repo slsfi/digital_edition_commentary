@@ -9,6 +9,8 @@ services:
     volumes: &edith_volumes
       - svn-volume:/opt/svn/
     restart: always
+    depends_on: 
+      - mysql-db
   
   web:
     build:
